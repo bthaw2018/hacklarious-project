@@ -16,7 +16,7 @@ auth.onAuthStateChanged(user => {
             el.textContent = "Logged in as " + user.email;
         })
         document.querySelector("body").style.backgroundImage = "";
-        document.querySelector(".horn").src = "./hornist.png";
+        // document.querySelector(".horn").src = "./hornist.png";
     } else {
         document.querySelectorAll(".logged-in").forEach(el => {
             el.style.display = "none";
@@ -24,6 +24,7 @@ auth.onAuthStateChanged(user => {
         document.querySelectorAll(".logged-out").forEach(el => {
             el.style.display = "";
         })
+        document.querySelector("body").style.backgroundImage = "url('./signin.png')";
         document.querySelectorAll(".email").forEach(el => {
             el.textContent = "Not signed in";
         })
