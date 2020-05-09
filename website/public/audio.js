@@ -49,6 +49,6 @@ function getAudioFileFromGCS(soundEffect, sound) {
     return url
   }).catch(err => {
     console.error(err.messaage);
-    return defaultRef.getDownloadURL().catch(err2 => console.log(err.message));
+    return defaultRef.getDownloadURL().catch(err2 => console.log(err2.message));
   })
 }
