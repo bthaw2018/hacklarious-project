@@ -52,3 +52,32 @@ function getAudioFileFromGCS(soundEffect, sound) {
     return defaultRef.getDownloadURL().catch(err2 => console.log(err2.message));
   })
 }
+
+function writeSoundToDatabase(soundEffect) {
+  firestore.collection("soundEffects").add({
+    timestamp: new firebase.firestore.Timestamp.now(),
+    sender_uid: firebase.auth().currentUser.uid,
+    sound_effect: soundEffect
+  }).catch(err => console.error(err.message));
+}
+firestore.collection("soundEffects").onSnapshot(snapshot => {
+  snapshot.docChanges().forEach(docChange => {
+    var doc = docChange.doc;
+    var data = doc.data();
+    var type = docChange.type;
+    if (type = "added") {
+      var docTimestamp = data.timestamp.toDate();
+      var currentTime = new Date();
+      var difference = docTimestamp.getTime() - currentTime.getTime();
+      var seconds = Math.abs(difference / 1000);
+
+      if (seconds < 5) {
+        console.log("less than 5 seconds");
+        if (data.sender_uid != auth.currentUser.uid) {
+          //play sound
+        }
+      }
+
+    }
+  })
+})
