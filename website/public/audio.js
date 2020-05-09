@@ -9,7 +9,15 @@ function click() {
 
 function playAudioOnKeyDown(e) {
   if (e.keyCode === 38) {
+    document.getElementById("horn").src = "./squeezinghornist.png"
     click();
   }
 }
+
+function lift(e) {
+  if (e.keyCode == 38) {
+    document.getElementById("horn").src = "./hornist.png"
+  }
+}
 document.onkeydown = playAudioOnKeyDown;
+document.onkeyup = lift;
