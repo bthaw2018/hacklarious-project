@@ -25,3 +25,7 @@
     overflow: scroll;
     max-height: 400px;
 } */
+
+.message h5 {
+    font-size: 1.25em;
+}
