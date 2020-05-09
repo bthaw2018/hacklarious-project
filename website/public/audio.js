@@ -1,28 +1,40 @@
 audio = []
-getAudioFileFromGCS("boo", false).then(url => {
+getAudioFileFromGCS("boo",false).then(url => {
   audio[0] = new Audio();
-  audio.src = "./sources/audio/topsecrethornsound.mp3";
+  audio[0].src = url;
   audio[0].preload = 'auto';
-  console.log(url);
 }).catch(err => console.log(err.message));
-getAudioFileFromGCS("boo", false).then(url => {
+
+getAudioFileFromGCS("topsecrethornsound",false).then(url => {
   audio[1] = new Audio();
-  audio.src = "./sources/audio/topsecrethornsound.mp3";
+  audio[1].src = url;
   audio[1].preload = 'auto';
-  console.log(url);
 }).catch(err => console.log(err.message));
-getAudioFileFromGCS("boo", false).then(url => {
+
+getAudioFileFromGCS("chicken",false).then(url => {
   audio[2] = new Audio();
-  audio.src = "./sources/audio/topsecrethornsound.mp3";
+  audio[2].src = url;
   audio[2].preload = 'auto';
-  console.log(url);
 }).catch(err => console.log(err.message));
+
+getAudioFileFromGCS("quack",false).then(url => {
+  audio[3] = new Audio();
+  audio[3].src = url;
+  audio[3].preload = 'auto';
+}).catch(err => console.log(err.message));
+
+getAudioFileFromGCS("background",true).then(url => {
+  audio[4] = new Audio();
+  audio[4].src = url;
+  audio[4].preload = 'auto';
+}).catch(err => console.log(err.message));
+
 
 function stream(url) {
   let aud = new Audio();
   aud.src = url;
   aud.play().then(r => console.log('Enjoy'))
-    .catch(e => console.log(e));
+      .catch(e => console.log(e.message));
 }
 
 function click(obj) {
@@ -71,7 +83,7 @@ function getAudioFileFromGCS(soundEffect, sound) {
   return ref.getDownloadURL().then(url => {
     return url
   }).catch(err => {
-    console.error(err.messaage);
+    console.error(err.message);
     return defaultRef.getDownloadURL().catch(err2 => console.log(err2.message));
   })
 }
