@@ -1,5 +1,7 @@
 a.g-signin-btn div {
     content: url("../sources/google_signin/btn_google_signin_light_normal_web.png");
+    margin-left:auto;
+    margin-right:auto;
 }
 a.g-signin-btn:focus:not(.disabled):not(:disabled) div {
     content: url("../sources/google_signin/btn_google_signin_light_focus_web.png");

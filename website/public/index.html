@@ -7,16 +7,16 @@
     <title>tooturself</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/google-signin.css">
-    <link rel="stylesheet" href="/styles/chat.css">
+    <link rel="stylesheet" href="./styles/google-signin.css">
+    <link rel="stylesheet" href="./styles/chat.css">
 </head>
 
-<body>
+<body style="background-image: url('./signin.png');">
     <div class="loading">
         Loading...
     </div>
     <div style="display: none" class="logged-out">
-        <a id="sign_in_button" href="#" class="g-signin-btn">
+        <a id="sign_in_button" href="#" class="g-signin-btn" onclick="down()">
             <div></div>
         </a>
     </div>
@@ -24,7 +24,7 @@
         <div class="email_container">
             <span class="email"></span>
             <br />
-            <button onclick="doSignOut()">Logout</button>
+            <button onclick="boo.play(); doSignOut()">Logout</button>
         </div>
 
         <img id="horn" src="./hornist.png" onmousedown="down()" onmouseup="up()" alt="go ahead" />
@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label for="new-message-input">Message</label>
                         <input autocomplete="off" type="text" class="form-control" id="new-message-input"
-                            name="message">
+                            name="message" required>
                         <small class="form-text text-muted">Up to 1000 characters.</small>
                     </div>
                     <div class="form-group">

@@ -30,3 +30,6 @@ function up() {
 
 document.onkeydown = playAudioOnKeyDown;
 document.onkeyup = lift;
+
+var boo = new Audio();
+boo.src = "https://www.myinstants.com/media/sounds/jacksfilms-boo-sound-effect.mp3";

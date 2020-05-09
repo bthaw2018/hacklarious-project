@@ -14,6 +14,7 @@ auth.onAuthStateChanged(user => {
         document.querySelectorAll(".email").forEach(el => {
             el.textContent = "Logged in as " + user.email;
         })
+        document.querySelector("body").style.backgroundImage = "";
     } else {
         document.querySelectorAll(".logged-in").forEach(el => {
             el.style.display = "none";
