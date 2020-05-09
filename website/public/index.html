@@ -12,10 +12,14 @@
 </head>
 
 <body style="background-image: url('./signin.png');">
-    <div class="loading">
-        Loading...
+    <div style="width: 70%; margin-top: 50vh;" class="mx-auto vertical-align loading">
+        <!-- Loading... -->
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+                aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
     </div>
-    <div style="display: none" class="logged-out">
+    <div style="display: none; margin-top: 50vh" class="logged-out">
         <a id="sign_in_button" href="#" class="g-signin-btn" onclick="down()">
             <div></div>
         </a>
@@ -38,8 +42,8 @@
                 <form id="new-message-form">
                     <div class="form-group">
                         <label for="new-message-input">Message</label>
-                        <input autocomplete="off" type="text" class="form-control" id="new-message-input"
-                            name="message" required>
+                        <input autocomplete="off" type="text" class="form-control" id="new-message-input" name="message"
+                            required>
                         <small class="form-text text-muted">Up to 1000 characters.</small>
                     </div>
                     <div class="form-group">

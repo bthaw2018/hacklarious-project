@@ -7,7 +7,7 @@ query.onSnapshot(snapshot => {
     snapshot.docChanges().forEach(docChange => {
         if (docChange.type == "added") {
             var doc = docChange.doc;
-            console.log(doc.data());
+            // console.log(doc.data());
             var new_message = document.createElement("div");
             new_message.classList.add("message", "list-group-item");
 
@@ -64,7 +64,18 @@ document.querySelector("#new-message-form").addEventListener("submit", e => {
     e.preventDefault();
     // var nickname = firebase.auth().currentUser.email;
     var nickname = document.querySelector("#new-message-form").querySelector("#new-message-nickname").value;
-    if (nickname == "") nickname = "no nickname";
+    if (nickname == "") {
+        if (auth.currentUser.displayName != null && auth.currentUser.displayName != undefined && auth.currentUser.displayName != "") {
+            nickname = auth.currentUser.displayName
+        } else {
+            if (auth.currentUser.email != undefined) {
+                nickname = auth.currentUser.email.split("@")[0]
+            } else {
+                nickname = "Random User";
+            }
+        }
+
+    }
     var messageContent = document.querySelector("#new-message-form").querySelector("#new-message-input").value;
 
     document.querySelector("#new-message-form").querySelector("#new-message-input").value = "";
