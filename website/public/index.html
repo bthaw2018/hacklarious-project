@@ -5,9 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tooturself</title>
+    <link rel="stylesheet" href="/styles/google-signin.css">
 </head>
 
 <body>
+
+    <div class="loading">
+        Loading...
+    </div>
+    <div style="display: none" class="logged-out">
+        <a id="sign_in_button" href="#" class="g-signin-btn">
+            <div></div>
+        </a>
+    </div>
+    <div style="display: none" class="logged-in">
+        <div class="email_container">
+            <span class="email"></span>
+            <br />
+            <button onclick="doSignOut()">Logout</button>
+        </div>
+    </div>
+
+
+
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
@@ -26,6 +47,8 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>
+
+    <script src="/scripts/auth.js"></script>
 </body>
 
 </html>
