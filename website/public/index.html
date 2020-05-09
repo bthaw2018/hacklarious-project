@@ -24,6 +24,17 @@
             <br />
             <button onclick="doSignOut()">Logout</button>
         </div>
+
+        <div class="chat-box">
+            <br /><br /<br />
+            <div id="messages"></div>
+            <div class="new-message">
+                <form id="new-messsage-form">
+                    <input name="message" type="text" id="new-message-input">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 
 
@@ -46,6 +57,7 @@
             appId: "1:899722407441:web:a8808b34695274a52e0bb0"
         };
         firebase.initializeApp(firebaseConfig);
+        var firestore = firebase.firestore();
     </script>
 
     <script src="/scripts/auth.js"></script>
