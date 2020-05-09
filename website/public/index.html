@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tooturself</title>
-    <link rel="stylesheet" href="/styles/google-signin.css">
+    <link rel="stylesheet" href="./styles/google-signin.css">
 </head>
 
 <body>
@@ -24,10 +24,10 @@
             <button onclick="doSignOut()">Logout</button>
         </div>
 
-        <img id="horn" src="./hornist.png" alt="go ahead" />
+        <img id="horn" src="./hornist.png" onmousedown="down()" onmouseup="up()" alt="go ahead" />
 
         <div class="chat-box">
-            <br /><br /<br />
+            <br /><br /><br />
             <div id="messages"></div>
             <div class="new-message">
                 <form id="new-messsage-form">

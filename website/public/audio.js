@@ -15,9 +15,18 @@ function playAudioOnKeyDown(e) {
 }
 
 function lift(e) {
-  if (e.keyCode == 38) {
+  if (e.keyCode === 38) {
     document.getElementById("horn").src = "./hornist.png"
   }
 }
+
+function down() {
+  document.getElementById("horn").src = "./squeezinghornist.png"
+  click();
+}
+function up() {
+  document.getElementById("horn").src = "./hornist.png"
+}
+
 document.onkeydown = playAudioOnKeyDown;
 document.onkeyup = lift;

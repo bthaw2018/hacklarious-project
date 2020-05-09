@@ -1,12 +1,12 @@
 a.g-signin-btn div {
-    content: url("/sources/google_signin/btn_google_signin_light_normal_web.png");
+    content: url("../sources/google_signin/btn_google_signin_light_normal_web.png");
 }
 a.g-signin-btn:focus:not(.disabled):not(:disabled) div {
-    content: url("/sources/google_signin/btn_google_signin_light_focus_web.png");
+    content: url("../sources/google_signin/btn_google_signin_light_focus_web.png");
 }
 a.g-signin-btn:disabled:not(.disabled):not(:disabled) div, a.g-signin-btn.disabled div {
-    content: url("/sources/google_signin/btn_google_signin_light_disabled_web.png");
+    content: url("../sources/google_signin/btn_google_signin_light_disabled_web.png");
 }
 a.g-signin-btn:hover:not(.disabled):not(:disabled) div {
-    content: url("/sources/google_signin/btn_google_signin_light_pressed_web.png");
+    content: url("../sources/google_signin/btn_google_signin_light_pressed_web.png");
 }
