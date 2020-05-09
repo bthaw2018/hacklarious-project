@@ -28,12 +28,16 @@
         <div class="email_container" style="background-color:#deb888; float:right; padding:10px">
             <span class="email"></span>
             <br />
-            <button class="btn btn-primary" onclick="click(0); doSignOut()">Logout</button>
+            <button class="btn btn-primary" onclick="down(0); doSignOut()">Logout</button>
         </div>
+        <div class="row">
+            <img class="col" id="horn" src="sources/images/hornist.png" onmousedown="down(1)"
+                    onmouseup="up()" alt="go ahead" />
+            <img class="col" style="height:300px" id="chicken" src="sources/images/chicken.png" onmousedown="down(2)" onmouseup="up()" alt="go ahead" />
+            <img class="col" id="duck" src="sources/images/duck.png" onmousedown="down(3)" onmouseup="up()" alt="go ahead" />
+          </div>
+      </div>
 
-        <img style="margin-left:auto; margin-right:auto" id="horn" src="sources/images/hornist.png" onmousedown="down(1)"
-            onmouseup="up()" alt="go ahead" class="rounded mx-auto d-block" />
-        <img class="rounded mx-auto d-block" id="chicken" src="sources/images/chicken.png" onmousedown="down(2)" onmouseup="up()" alt="go ahead" />
 
 <!--        <br /><br /><br />-->
 
