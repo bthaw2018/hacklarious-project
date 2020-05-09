@@ -38,10 +38,19 @@
                 <form id="new-message-form">
                     <div class="form-group">
                         <label for="new-message-input">Message</label>
-                        <input type="text" class="form-control" id="new-message-input" name="message">
+                        <input autocomplete="off" type="text" class="form-control" id="new-message-input"
+                            name="message">
                         <small class="form-text text-muted">Up to 1000 characters.</small>
                     </div>
+                    <div class="form-group">
+                        <!-- <label for="new-message-nickname">Nickname</label> -->
+                        <input autocomplete="off" type="text" class="form-control" placeholder="Nickname"
+                            id="new-message-nickname" name="nickname">
+                        <!-- <small class="form-text text-muted">Up to 1000 characters.</small> -->
+                    </div>
                     <button class="btn btn-primary" type="submit">Submit</button>
+                    <!-- <br /> -->
+
                 </form>
             </div>
         </div>

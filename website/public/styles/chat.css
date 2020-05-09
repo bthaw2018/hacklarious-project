@@ -1,9 +1,11 @@
 .chat-box {
-    width: 350px;
+    width: 400px;
     padding: 20px;
     position: fixed;
     bottom: 20px;
     right: 20px;
+    max-height: 90vh;
+    overflow: scroll;
 }
 .message {
     font-size: .75em;
@@ -14,6 +16,12 @@
 }
 
 #messages {
-    max-height: 500px; 
+    /* max-height: 500px;  */
+    /* max-height:  */
+    max-height: 55vh;
     overflow: scroll;
 }
+/* #new-message-form {
+    overflow: scroll;
+    max-height: 400px;
+} */

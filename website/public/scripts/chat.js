@@ -62,7 +62,8 @@ function createMessage(message, nickname) {
 
 document.querySelector("#new-message-form").addEventListener("submit", e => {
     e.preventDefault();
-    var nickname = firebase.auth().currentUser.email;
+    // var nickname = firebase.auth().currentUser.email;
+    var nickname = document.querySelector("#new-message-form").querySelector("#new-message-nickname").value;
     var messageContent = document.querySelector("#new-message-form").querySelector("#new-message-input").value;
 
     document.querySelector("#new-message-form").querySelector("#new-message-input").value = "";
