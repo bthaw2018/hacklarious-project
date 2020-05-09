@@ -36,12 +36,15 @@ boo.src = "https://www.myinstants.com/media/sounds/jacksfilms-boo-sound-effect.m
 
 /**
  * 
- * @param {String} soundEffect 
+ * @param {String} soundEffect - Name of the sound effect
+ * @param {Boolean} sound - Whether this is a normal sound instead of a sound effect.
  * @returns {Promise} Promise - Download URL
  */
-function getAudioFileFromGCS(soundEffect) {
-  var ref = storage.ref("sound_effects/" + soundEffect + ".mp3");
-  var defaultRef = storage.ref("sound_effects/" + "default" + ".mp3");
+function getAudioFileFromGCS(soundEffect, sound) {
+  var rootPath = "sound_effects/"
+  if (sound == true) rootPath = "sounds/";
+  var ref = storage.ref(rootPath + soundEffect + ".mp3");
+  var defaultRef = storage.ref(rootPath + "default" + ".mp3");
   return ref.getDownloadURL().then(url => {
     return url
   }).catch(err => {
