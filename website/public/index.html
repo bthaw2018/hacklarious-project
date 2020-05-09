@@ -8,16 +8,11 @@
 </head>
 
 <body>
-
-
-
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-storage.js"></script>
-
     <script>
         var firebaseConfig = {
             apiKey: "AIzaSyAUbKjdlvqribjszZnukDzDTcAhAkzibHE",
@@ -29,6 +24,22 @@
             appId: "1:899722407441:web:a8808b34695274a52e0bb0"
         };
         firebase.initializeApp(firebaseConfig);
+
+        var audio = new Audio();
+        audio.src = "./topsecrethornsound.mp3";
+        audio.preload = 'auto';
+
+        function click() {
+            const newAudio = audio.cloneNode()
+            newAudio.play()
+        }
+
+        function playAudioOnKeyDown(e) {
+            if (e.keyCode === 38) {
+                click();
+            }
+        }
+        document.onkeydown = playAudioOnKeyDown;
     </script>
 </body>
 
