@@ -1,0 +1,19 @@
+.chat-box {
+    width: 350px;
+    padding: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.message {
+    font-size: .75em;
+    padding-bottom: .5em;
+}
+.message p {
+    margin-bottom: .5rem;
+}
+
+#messages {
+    max-height: 500px; 
+    overflow: scroll;
+}
