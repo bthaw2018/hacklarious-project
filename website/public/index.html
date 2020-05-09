@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <div class="loading">
         Loading...
     </div>
@@ -36,10 +35,6 @@
             </div>
         </div>
     </div>
-
-
-
-
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
@@ -59,10 +54,11 @@
         firebase.initializeApp(firebaseConfig);
         var firestore = firebase.firestore();
     </script>
+    <script src="./scripts/auth.js"></script>
+    <script src="./audio.js"></script>
+    <script src="./scripts/chat.js"></script>
 
-    <script src="/scripts/auth.js"></script>
-    <script src="/audio.js"></script>
-    <script src="/scripts/chat.js"></script>
+    <img id="horn" src="./hornist.png" alt="go ahead"/>
 </body>
 
 </html>
