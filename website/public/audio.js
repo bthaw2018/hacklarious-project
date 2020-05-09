@@ -1,4 +1,4 @@
-audio = []
+let audio = []
 getAudioFileFromGCS("boo",false).then(url => {
   audio[0] = new Audio();
   audio[0].src = url;
@@ -23,12 +23,6 @@ getAudioFileFromGCS("quack",false).then(url => {
   audio[3].preload = 'auto';
 }).catch(err => console.log(err.message));
 
-getAudioFileFromGCS("background",true).then(url => {
-  audio[4] = new Audio();
-  audio[4].src = url;
-  audio[4].preload = 'auto';
-}).catch(err => console.log(err.message));
-
 
 function stream(url) {
   let aud = new Audio();
@@ -37,37 +31,35 @@ function stream(url) {
       .catch(e => console.log(e.message));
 }
 
-function click(obj) {
-  const newAudio = obj.cloneNode()
+function click(ind) {
+  const newAudio = audio[ind].cloneNode();
   newAudio.play()
 }
 
 function playAudioOnKeyDown(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = ".sources/images/squeezinghornist.png"
-    click();
+    document.getElementById("horn").src = "sources/images/squeezinghornist.png"
+    click(1);
   }
 }
 
 function lift(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = ".sources/images/hornist.png"
+    document.getElementById("horn").src = "sources/images/hornist.png"
   }
 }
 
-function down() {
-  document.getElementById("horn").src = "./sources/images/squeezinghornist.png"
-  click();
+function down(ind) {
+  document.getElementById("horn").src = "sources/images/squeezinghornist.png"
+  click(ind);
 }
 function up() {
-  document.getElementById("horn").src = "./sources/images/hornist.png"
+  document.getElementById("horn").src = "sources/images/hornist.png"
 }
 
 document.onkeydown = playAudioOnKeyDown;
 document.onkeyup = lift;
 
-var boo = new Audio();
-boo.src = "https://www.myinstants.com/media/sounds/jacksfilms-boo-sound-effect.mp3";
 
 /**
  *
