@@ -1,9 +1,32 @@
-var audio = new Audio();
-audio.src = "./sources/audio/topsecrethornsound.mp3";
-audio.preload = 'auto';
+audio = []
+getAudioFileFromGCS("boo",false).then(url => {
+  audio[0] = new Audio();
+  audio.src = "./sources/audio/topsecrethornsound.mp3";
+  audio[0].preload = 'auto';
+  console.log(url);
+}).catch(err => console.log(err.message));
+getAudioFileFromGCS("boo",false).then(url => {
+  audio[1] = new Audio();
+  audio.src = "./sources/audio/topsecrethornsound.mp3";
+  audio[1].preload = 'auto';
+  console.log(url);
+}).catch(err => console.log(err.message));
+getAudioFileFromGCS("boo",false).then(url => {
+  audio[2] = new Audio();
+  audio.src = "./sources/audio/topsecrethornsound.mp3";
+  audio[2].preload = 'auto';
+  console.log(url);
+}).catch(err => console.log(err.message));
 
-function click() {
-  const newAudio = audio.cloneNode()
+function stream(url) {
+  let aud = new Audio();
+  aud.src = url;
+  aud.play().then(r => console.log('Enjoy'))
+      .catch(e => console.log(e));
+}
+
+function click(obj) {
+  const newAudio = obj.cloneNode()
   newAudio.play()
 }
 
@@ -35,7 +58,7 @@ var boo = new Audio();
 boo.src = "https://www.myinstants.com/media/sounds/jacksfilms-boo-sound-effect.mp3";
 
 /**
- * 
+ *
  * @param {String} soundEffect - Name of the sound effect
  * @param {Boolean} sound - Whether this is a normal sound instead of a sound effect.
  * @returns {Promise} Promise - Download URL
@@ -52,7 +75,6 @@ function getAudioFileFromGCS(soundEffect, sound) {
     return defaultRef.getDownloadURL().catch(err2 => console.log(err2.message));
   })
 }
-<<<<<<< HEAD
 
 function writeSoundToDatabase(soundEffect) {
   firestore.collection("soundEffects").add({
@@ -66,7 +88,7 @@ firestore.collection("soundEffects").onSnapshot(snapshot => {
     var doc = docChange.doc;
     var data = doc.data();
     var type = docChange.type;
-    if (type = "added") {
+    if (type === "added") {
       var docTimestamp = data.timestamp.toDate();
       var currentTime = new Date();
       var difference = docTimestamp.getTime() - currentTime.getTime();
@@ -82,5 +104,3 @@ firestore.collection("soundEffects").onSnapshot(snapshot => {
     }
   })
 })
-=======
->>>>>>> 304c6ea6ccc741056a2139fc2858693c4f890828
