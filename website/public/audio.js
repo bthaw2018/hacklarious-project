@@ -1,5 +1,5 @@
 var audio = new Audio();
-audio.src = "./topsecrethornsound.mp3";
+audio.src = "./sources/audio/topsecrethornsound.mp3";
 audio.preload = 'auto';
 
 function click() {
@@ -9,23 +9,23 @@ function click() {
 
 function playAudioOnKeyDown(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = "./squeezinghornist.png"
+    document.getElementById("horn").src = ".sources/images/squeezinghornist.png"
     click();
   }
 }
 
 function lift(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = "./hornist.png"
+    document.getElementById("horn").src = ".sources/images/hornist.png"
   }
 }
 
 function down() {
-  document.getElementById("horn").src = "./squeezinghornist.png"
+  document.getElementById("horn").src = "./sources/images/squeezinghornist.png"
   click();
 }
 function up() {
-  document.getElementById("horn").src = "./hornist.png"
+  document.getElementById("horn").src = "./sources/images/hornist.png"
 }
 
 document.onkeydown = playAudioOnKeyDown;
@@ -52,6 +52,7 @@ function getAudioFileFromGCS(soundEffect, sound) {
     return defaultRef.getDownloadURL().catch(err2 => console.log(err2.message));
   })
 }
+<<<<<<< HEAD
 
 function writeSoundToDatabase(soundEffect) {
   firestore.collection("soundEffects").add({
@@ -81,3 +82,5 @@ firestore.collection("soundEffects").onSnapshot(snapshot => {
     }
   })
 })
+=======
+>>>>>>> 304c6ea6ccc741056a2139fc2858693c4f890828
