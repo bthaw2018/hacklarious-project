@@ -1,17 +1,17 @@
 audio = []
-getAudioFileFromGCS("boo",false).then(url => {
+getAudioFileFromGCS("boo", false).then(url => {
   audio[0] = new Audio();
   audio.src = "./sources/audio/topsecrethornsound.mp3";
   audio[0].preload = 'auto';
   console.log(url);
 }).catch(err => console.log(err.message));
-getAudioFileFromGCS("boo",false).then(url => {
+getAudioFileFromGCS("boo", false).then(url => {
   audio[1] = new Audio();
   audio.src = "./sources/audio/topsecrethornsound.mp3";
   audio[1].preload = 'auto';
   console.log(url);
 }).catch(err => console.log(err.message));
-getAudioFileFromGCS("boo",false).then(url => {
+getAudioFileFromGCS("boo", false).then(url => {
   audio[2] = new Audio();
   audio.src = "./sources/audio/topsecrethornsound.mp3";
   audio[2].preload = 'auto';
@@ -22,7 +22,7 @@ function stream(url) {
   let aud = new Audio();
   aud.src = url;
   aud.play().then(r => console.log('Enjoy'))
-      .catch(e => console.log(e));
+    .catch(e => console.log(e));
 }
 
 function click(obj) {
@@ -95,9 +95,12 @@ firestore.collection("soundEffects").onSnapshot(snapshot => {
       var seconds = Math.abs(difference / 1000);
 
       if (seconds < 5) {
-        console.log("less than 5 seconds");
+        // console.log("less than 5 seconds");
         if (data.sender_uid != auth.currentUser.uid) {
           //play sound
+          getAudioFileFromGCS(data.sound_effect).then(url => {
+            stream(url);
+          })
         }
       }
 
