@@ -1,5 +1,5 @@
 var audio = new Audio();
-audio.src = "./topsecrethornsound.mp3";
+audio.src = "./sources/audio/topsecrethornsound.mp3";
 audio.preload = 'auto';
 
 function click() {
@@ -9,23 +9,23 @@ function click() {
 
 function playAudioOnKeyDown(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = "./squeezinghornist.png"
+    document.getElementById("horn").src = ".sources/images/squeezinghornist.png"
     click();
   }
 }
 
 function lift(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = "./hornist.png"
+    document.getElementById("horn").src = ".sources/images/hornist.png"
   }
 }
 
 function down() {
-  document.getElementById("horn").src = "./squeezinghornist.png"
+  document.getElementById("horn").src = "./sources/images/squeezinghornist.png"
   click();
 }
 function up() {
-  document.getElementById("horn").src = "./hornist.png"
+  document.getElementById("horn").src = "./sources/images/hornist.png"
 }
 
 document.onkeydown = playAudioOnKeyDown;
