@@ -27,17 +27,20 @@
     <div style="display: none" class="logged-in">
         <div class="email_container" style="background-color:#deb888; float:right; padding:10px">
             <span class="email"></span>
-            <br />
-            <button class="btn btn-primary" onclick="down(0); doSignOut()">Logout</button>
+            <button class="btn btn-light" onclick="down(0); doSignOut()">Logout</button>
         </div>
-        <div class="row">
-            <img class="col" id="horn" src="sources/images/hornist.png" onmousedown="down(1)"
-                    onmouseup="up()" alt="go ahead" />
-            <img class="col" style="height:300px" id="chicken" src="sources/images/chicken.png" onmousedown="down(2)" onmouseup="up()" alt="go ahead" />
-            <img class="col" id="duck" src="sources/images/duck.png" onmousedown="down(3)" onmouseup="up()" alt="go ahead" />
+        <div class="row d-flex flex-wrap align-items-center">
+            <div class="col">
+                <img id="topsecrethornsound" src="sources/images/topsecrethornsound.png" onmousedown="down(1)"
+                     onmouseup="up(1)" alt="go ahead" class="rounded" />
+            </div>
+            <div class="col">
+                <img style="height:300px" id="chicken" src="sources/images/chicken.png" onmousedown="down(2)" onmouseup="up(2)" alt="go ahead" />
+            </div>
+            <div class="col">
+                <img id="quack" src="sources/images/quack.png" onmousedown="down(3)" onmouseup="up(3)" alt="go ahead" />
+            </div>
           </div>
-      </div>
-
 
 <!--        <br /><br /><br />-->
 
@@ -64,6 +67,7 @@
                 </form>
             </div>
         </div>
+      </div>
 
     </div>
 
