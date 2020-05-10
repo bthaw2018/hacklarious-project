@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x:hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -44,11 +44,10 @@
             <div class="col">
                 <img id="quack" src="sources/images/quack.png" onmousedown="down(3)" onmouseup="up(3)" alt="go ahead" />
             </div>
-            <div class="col">
-                <button class="btn-outline-secondary" type="button" onclick="randomize()">Begin your
-                    performance</button>
+            <div class="col" style="text-align:center">
+                <button class="btn-dark" id="perform" type="button" style="padding-top:20px;padding-bottom: 20px; border-radius:25px" onclick="dim()">Begin your performance</button>
                 <br />
-                <button class="btn-outline-secondary" type="button" onclick="down(4)">Request applause</button>
+                <button class="btn-warning" id="clap" type="button" onclick="down(4); enlighten()" disabled>Request applause</button>
             </div>
         </div>
         <div class="row">

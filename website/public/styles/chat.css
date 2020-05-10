@@ -30,3 +30,22 @@
 .message h5 {
     font-size: 1.25em;
 }
+
+.dimming {
+  animation-name: dims;
+  animation-duration: 4s;
+  background-color: #0d0d0d;
+}
+@keyframes dims {
+  0%   {background-color:white;}
+  100% {background-color:#0d0d0d;}
+}
+.brightening {
+  animation-name: brightens;
+  animation-duration: 3s;
+  background-color: white;
+}
+@keyframes brightens {
+  0% {background-color:#0d0d0d;}
+  100%   {background-color:white;}
+}

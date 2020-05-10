@@ -199,6 +199,17 @@ function randomize() {
     return document.getElementById("new-message-nickname").value = "Anonymous " + random;
 }
 
+function dim() {
+    document.body.className = "dimming";
+    document.getElementById("clap").disabled = !document.getElementById("clap").disabled;
+    document.getElementById("perform").disabled = !document.getElementById("perform").disabled;
+}
+function enlighten() {
+    document.body.className = "brightening";
+    document.getElementById("clap").disabled = !document.getElementById("clap").disabled;
+    document.getElementById("perform").disabled = !document.getElementById("perform").disabled;
+}
+
 // Uses the Meme API by R3l3ntl3ss
 // https://github.com/R3l3ntl3ss/Meme_Api
 function getRandomMeme() {
@@ -216,7 +227,7 @@ function getRandomMeme() {
     })
 }
 
-//If the getRandomMeme function fails (due to rate limiting), 
+//If the getRandomMeme function fails (due to rate limiting),
 //  then we use the HTTP Cat image set to get a meme of the status code
 // https://http.cat/ By Versió Catalià, @rogeriopvl, and @girlie_mac
 function getHttpCatMeme(statusCode) {
