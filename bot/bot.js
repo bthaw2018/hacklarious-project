@@ -12,8 +12,8 @@ var app = admin.initializeApp({
 client.on("ready", () => {
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
-    process.stdout.write("TootUrSelf Discord bot ready!")
-    process.stdout.write("\n");
+    process.stdout.write("Connected to Discord! Establishing voice connection. ")
+
     var channel = client.channels.cache.get("708866459425701889");
 
     doVoiceChannelStuff();
@@ -35,13 +35,15 @@ client.on("ready", () => {
                 // channel.send("> " + data.content + "\n- " + data.author);
                 var embed = new Discord.MessageEmbed();
                 embed.setDescription(data.content)
-                    .addField("From", data.author)
+                    // .addField("From", data.author)
                     .setFooter(client.user.tag, client.user.avatarURL)
                     .setTimestamp(data.timestamp.toDate());
                 if (channel.guild.members.cache.get(data.author_uid) != undefined) {
                     var member = channel.guild.members.cache.get(data.author_uid);
                     // console.log(member.user.avatarURL);
                     embed.setAuthor(member.user.username, member.user.avatarURL);
+                } else {
+                    embed.setAuthor(data.author);
                 }
                 channel.send(embed)
             }
@@ -50,6 +52,10 @@ client.on("ready", () => {
 });
 
 function doVoiceChannelStuff() {
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+    process.stdout.write("TootUrSelf Discord bot ready!")
+    process.stdout.write("\n");
     var voiceChannel = client.channels.cache.get("708852620730826806");
 
     voiceChannel.join().then(connection => {
@@ -68,7 +74,7 @@ function doVoiceChannelStuff() {
                     if (seconds < 5) {
                         // console.log("less than 5 seconds");
                         //play sound
-                        getAudioFileFromGCS(data.sound_effect).then(url => {
+                        getAudioFileFromGCS(data.sound_effect, data.sound_folder).then(url => {
                             connection.play(url);
                             // broadcast.play(url);
                             // connection.play(broadcast);
