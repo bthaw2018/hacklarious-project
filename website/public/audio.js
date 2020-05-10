@@ -23,6 +23,11 @@ getAudioFileFromGCS("quack",false).then(url => {
   audio[3].preload = 'auto';
 }).catch(err => console.log(err.message));
 
+getAudioFileFromGCS("applause",true).then(url => {
+  audio[4] = new Audio();
+  audio[4].src = url;
+  audio[4].preload = 'auto';
+}).catch(err => console.log(err.message));
 
 function stream(url) {
   let aud = new Audio();
@@ -64,6 +69,9 @@ function down(ind) {
     case 3:
       writeSoundToDatabase("quack")
       document.getElementById("quack").src = "sources/images/squeezingquack.png"
+      break
+    default:
+      writeSoundToDatabase("applause")
       break
   }
   click(ind);
