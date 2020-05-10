@@ -46,11 +46,25 @@ function playAudioOnKeyDown(e) {
     document.getElementById("topsecrethornsound").src = "sources/images/squeezingtopsecrethornsound.png"
     click(1);
   }
+  if (e.keyCode === 39) {
+    document.getElementById("chicken").src = "sources/images/squeezingchicken.png"
+    click(2);
+  }
+  if (e.keyCode === 37) {
+    document.getElementById("quack").src = "sources/images/squeezingquack.png"
+    click(3);
+  }
 }
 
 function lift(e) {
   if (e.keyCode === 38) {
     document.getElementById("topsecrethornsound").src = "sources/images/topsecrethornsound.png"
+  }
+  if (e.keyCode === 39) {
+    document.getElementById("chicken").src = "sources/images/chicken.png"
+  }
+  if (e.keyCode === 37) {
+    document.getElementById("quack").src = "sources/images/quackt.png"
   }
 }
 
