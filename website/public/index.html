@@ -45,10 +45,14 @@
                 <img id="quack" src="sources/images/quack.png" onmousedown="down(3)" onmouseup="up(3)" alt="go ahead" />
             </div>
             <div class="col">
-                <button class="btn-outline-secondary" type="button" onclick="randomize()">Begin your performance</button>
+                <button class="btn-outline-secondary" type="button" onclick="randomize()">Begin your
+                    performance</button>
                 <br />
                 <button class="btn-outline-secondary" type="button" onclick="down(4)">Request applause</button>
             </div>
+        </div>
+        <div class="row">
+            <img class="img-thumbnail" style="margin-left: 50px; max-width:400px" id="randomMeme" />
         </div>
 
         <!--        <br /><br /><br />-->
@@ -67,11 +71,11 @@
                     <div class="form-group">
                         <!-- <label for="new-message-nickname">Nickname</label> -->
                         <div class="input-group mb-3">
-                        <input autocomplete="off" type="text" class="form-control" placeholder="Nickname"
-                            id="new-message-nickname" name="nickname" />
-                          <div class="input-group-append">
-                            <button class="btn-outline-secondary" type="button" onclick="randomize()">🔄</button>
-                          </div>
+                            <input autocomplete="off" type="text" class="form-control" placeholder="Nickname"
+                                id="new-message-nickname" name="nickname" />
+                            <div class="input-group-append">
+                                <button class="btn-outline-secondary" type="button" onclick="randomize()">🔄</button>
+                            </div>
                         </div>
                         <!-- <small class="form-text text-muted">Up to 1000 characters.</small> -->
                     </div>
@@ -87,9 +91,7 @@
 
 
     <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
