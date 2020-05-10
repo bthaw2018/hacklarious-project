@@ -135,6 +135,10 @@ function writeSoundToDatabase(soundEffect, sound) {
     sender_uid: firebase.auth().currentUser.uid,
     sound_effect: soundEffect,
     sound_folder: (sound == true) ? true : false
+  }).then(doc => {
+    setTimeout(() => {
+      doc.delete();
+    }, 3000);
   }).catch(err => console.error(err.message));
 }
 firestore.collection("soundEffects").onSnapshot(snapshot => {

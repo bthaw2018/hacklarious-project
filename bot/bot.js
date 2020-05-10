@@ -33,6 +33,10 @@ client.on("ready", () => {
             if (seconds < 5) {
                 // console.log(data.content);
                 // channel.send("> " + data.content + "\n- " + data.author);
+                if (data.author_uid == "708844262221152266") {
+                    channel.send(`@everyone ${data.content}`);
+                    return;
+                }
                 var embed = new Discord.MessageEmbed();
                 embed.setDescription(data.content)
                     // .addField("From", data.author)
@@ -44,6 +48,9 @@ client.on("ready", () => {
                     embed.setAuthor(member.user.username, member.user.avatarURL);
                 } else {
                     embed.setAuthor(data.author);
+                }
+                if (data.memeUrl != undefined) {
+                    embed.setImage(data.memeUrl);
                 }
                 channel.send(embed)
             }

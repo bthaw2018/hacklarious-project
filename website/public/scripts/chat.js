@@ -50,7 +50,7 @@ query.onSnapshot(snapshot => {
             var seconds = Math.abs(difference / 1000);
 
             if (seconds < 5) {
-                randomMeme();
+                document.querySelector("#randomMeme").setAttribute("src", doc.data().memeUrl);
                 randomPokemon();
             }
 
@@ -83,14 +83,46 @@ function randomMeme(intentionallyCauseAnError = false) {
     })
 }
 
-function sendMessage(message_content, nickname) {
+
+function startPerformance(nickname) {
     collection.add({
-        content: message_content,
-        author: nickname,
-        author_uid: firebase.auth().currentUser ? firebase.auth().currentUser.uid : nickname,
+        author: "[System]",
+        author_uid: "708844262221152266",
         timestamp: new firebase.firestore.Timestamp.now(),
-        deleted: false
+        deleted: false,
+        content: "Hey everyone! Come join **" + ((nickname != undefined) ? nickname : auth.currentUser.displayName) + "** begin their performance at https://tooturself.online/ !"
     })
+}
+
+function sendMessage(message_content, nickname) {
+    getRandomMeme().then(response => {
+        collection.add({
+            content: message_content,
+            author: nickname,
+            author_uid: firebase.auth().currentUser ? firebase.auth().currentUser.uid : nickname,
+            timestamp: new firebase.firestore.Timestamp.now(),
+            deleted: false,
+            memeUrl: response.url
+        })
+    }).catch(() => {
+        collection.add({
+            content: message_content,
+            author: nickname,
+            author_uid: firebase.auth().currentUser ? firebase.auth().currentUser.uid : nickname,
+            timestamp: new firebase.firestore.Timestamp.now(),
+            deleted: false,
+            memeUrl: getHttpCatMeme(last_status)
+        })
+    })
+
+
+    // collection.add({
+    //     content: message_content,
+    //     author: nickname,
+    //     author_uid: firebase.auth().currentUser ? firebase.auth().currentUser.uid : nickname,
+    //     timestamp: new firebase.firestore.Timestamp.now(),
+    //     deleted: false
+    // })
 }
 function createMessage(message, nickname) {
     var new_message = message;
@@ -217,6 +249,7 @@ function randomize() {
 }
 
 function dim() {
+    startPerformance((document.getElementById("new-message-nickname").value != "" ? document.getElementById("new-message-nickname").value : auth.currentUser.displayName));
     document.body.className = "dimming";
     document.getElementById("clap").disabled = !document.getElementById("clap").disabled;
     document.getElementById("perform").disabled = !document.getElementById("perform").disabled;
@@ -231,9 +264,9 @@ function enlighten() {
 // https://github.com/R3l3ntl3ss/Meme_Api
 function getRandomMeme() {
     return $.ajax({
-        url: 'https://meme-api.herokuapp.com/gimme',
+        url: 'https://meme-api.herokuapp.com/gimme/cleanmemes',
         success: data => {
-            console.log(data.url);
+            // console.log(data.url);
             return data.url;
         },
         error: (jqXHR, exception) => {
