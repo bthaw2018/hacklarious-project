@@ -1,0 +1,19 @@
+{
+  "name": "hacklarious-tooturself-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "bufferutil": "^4.0.1",
+    "discord.js": "^12.2.0",
+    "erlpack": "github:discordapp/erlpack",
+    "utf-8-validate": "^5.0.2",
+    "zlib-sync": "^0.1.6"
+  }
+}
