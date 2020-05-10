@@ -1,29 +1,29 @@
 let audio = []
-getAudioFileFromGCS("boo",false).then(url => {
+getAudioFileFromGCS("boo", false).then(url => {
   audio[0] = new Audio();
   audio[0].src = url;
   audio[0].preload = 'auto';
 }).catch(err => console.log(err.message));
 
-getAudioFileFromGCS("topsecrethornsound",false).then(url => {
+getAudioFileFromGCS("topsecrethornsound", false).then(url => {
   audio[1] = new Audio();
   audio[1].src = url;
   audio[1].preload = 'auto';
 }).catch(err => console.log(err.message));
 
-getAudioFileFromGCS("chicken",false).then(url => {
+getAudioFileFromGCS("chicken", false).then(url => {
   audio[2] = new Audio();
   audio[2].src = url;
   audio[2].preload = 'auto';
 }).catch(err => console.log(err.message));
 
-getAudioFileFromGCS("quack",false).then(url => {
+getAudioFileFromGCS("quack", false).then(url => {
   audio[3] = new Audio();
   audio[3].src = url;
   audio[3].preload = 'auto';
 }).catch(err => console.log(err.message));
 
-getAudioFileFromGCS("applause",true).then(url => {
+getAudioFileFromGCS("applause", true).then(url => {
   audio[4] = new Audio();
   audio[4].src = url;
   audio[4].preload = 'auto';
@@ -33,7 +33,7 @@ function stream(url) {
   let aud = new Audio();
   aud.src = url;
   aud.play().then(r => console.log('Enjoy'))
-      .catch(e => console.log(e.message));
+    .catch(e => console.log(e.message));
 }
 
 function click(ind) {
@@ -55,7 +55,7 @@ function lift(e) {
 }
 
 function down(ind) {
-  switch(ind){
+  switch (ind) {
     case 0:
       break
     case 1:
@@ -71,13 +71,13 @@ function down(ind) {
       document.getElementById("quack").src = "sources/images/squeezingquack.png"
       break
     default:
-      writeSoundToDatabase("applause")
+      writeSoundToDatabase("applause", true)
       break
   }
   click(ind);
 }
 function up(ind) {
-  switch(ind){
+  switch (ind) {
     case 0:
       break
     case 1:
@@ -89,7 +89,8 @@ function up(ind) {
     case 3:
       document.getElementById("quack").src = "sources/images/quack.png"
       break
-  }}
+  }
+}
 
 document.onkeydown = playAudioOnKeyDown;
 document.onkeyup = lift;
@@ -114,11 +115,12 @@ function getAudioFileFromGCS(soundEffect, sound) {
   })
 }
 
-function writeSoundToDatabase(soundEffect) {
+function writeSoundToDatabase(soundEffect, sound) {
   firestore.collection("soundEffects").add({
     timestamp: new firebase.firestore.Timestamp.now(),
     sender_uid: firebase.auth().currentUser.uid,
-    sound_effect: soundEffect
+    sound_effect: soundEffect,
+    sound_folder: (sound == true) ? true : false
   }).catch(err => console.error(err.message));
 }
 firestore.collection("soundEffects").onSnapshot(snapshot => {
@@ -135,11 +137,11 @@ firestore.collection("soundEffects").onSnapshot(snapshot => {
       if (seconds < 5) {
         // console.log("less than 5 seconds");
         if (data.sender_uid != auth.currentUser.uid) {
-          document.getElementById(data.sound_effect).src = "sources/images/squeezing"+data.sound_effect+".png";
+          document.getElementById(data.sound_effect).src = "sources/images/squeezing" + data.sound_effect + ".png";
           //play sound
-          getAudioFileFromGCS(data.sound_effect).then(url => {
+          getAudioFileFromGCS(data.sound_effect, data.sound_folder).then(url => {
             stream(url);
-            document.getElementById(data.sound_effect).src = "sources/images/"+data.sound_effect+".png";
+            document.getElementById(data.sound_effect).src = "sources/images/" + data.sound_effect + ".png";
           })
         }
       }
