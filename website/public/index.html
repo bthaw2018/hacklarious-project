@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tooturself</title>
+    <title>toot🎺🐔🦆urself</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Monoton&family=Orbitron&family=Press+Start+2P&family=Rock+Salt&family=Rubik+Mono+One&display=swap"
         rel="stylesheet">
@@ -44,6 +44,11 @@
             <div class="col">
                 <img id="quack" src="sources/images/quack.png" onmousedown="down(3)" onmouseup="up(3)" alt="go ahead" />
             </div>
+            <div class="col">
+                <button class="btn-outline-secondary" type="button" onclick="randomize()">Begin your performance</button>
+                <br />
+                <button class="btn-outline-secondary" type="button" onclick="down(4)">Request applause</button>
+            </div>
         </div>
 
         <!--        <br /><br /><br />-->
@@ -61,8 +66,13 @@
                     </div>
                     <div class="form-group">
                         <!-- <label for="new-message-nickname">Nickname</label> -->
+                        <div class="input-group mb-3">
                         <input autocomplete="off" type="text" class="form-control" placeholder="Nickname"
-                            id="new-message-nickname" name="nickname">
+                            id="new-message-nickname" name="nickname" />
+                          <div class="input-group-append">
+                            <button class="btn-outline-secondary" type="button" onclick="randomize()">🔄</button>
+                          </div>
+                        </div>
                         <!-- <small class="form-text text-muted">Up to 1000 characters.</small> -->
                     </div>
                     <button class="btn btn-primary" type="submit">Submit</button>
