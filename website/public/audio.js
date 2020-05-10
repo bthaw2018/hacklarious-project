@@ -38,24 +38,50 @@ function click(ind) {
 
 function playAudioOnKeyDown(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = "sources/images/squeezinghornist.png"
+    document.getElementById("topsecrethornsound").src = "sources/images/squeezingtopsecrethornsound.png"
     click(1);
   }
 }
 
 function lift(e) {
   if (e.keyCode === 38) {
-    document.getElementById("horn").src = "sources/images/hornist.png"
+    document.getElementById("topsecrethornsound").src = "sources/images/topsecrethornsound.png"
   }
 }
 
 function down(ind) {
-  document.getElementById("horn").src = "sources/images/squeezinghornist.png"
+  switch(ind){
+    case 0:
+      break
+    case 1:
+      writeSoundToDatabase("topsecrethornsound")
+      document.getElementById("topsecrethornsound").src = "sources/images/squeezingtopsecrethornsound.png"
+      break
+    case 2:
+      writeSoundToDatabase("chicken")
+      document.getElementById("chicken").src = "sources/images/squeezingchicken.png"
+      break
+    case 3:
+      writeSoundToDatabase("quack")
+      document.getElementById("quack").src = "sources/images/squeezingquack.png"
+      break
+  }
   click(ind);
 }
-function up() {
-  document.getElementById("horn").src = "sources/images/hornist.png"
-}
+function up(ind) {
+  switch(ind){
+    case 0:
+      break
+    case 1:
+      document.getElementById("topsecrethornsound").src = "sources/images/topsecrethornsound.png"
+      break
+    case 2:
+      document.getElementById("chicken").src = "sources/images/chicken.png"
+      break
+    case 3:
+      document.getElementById("quack").src = "sources/images/quack.png"
+      break
+  }}
 
 document.onkeydown = playAudioOnKeyDown;
 document.onkeyup = lift;
@@ -101,9 +127,11 @@ firestore.collection("soundEffects").onSnapshot(snapshot => {
       if (seconds < 5) {
         // console.log("less than 5 seconds");
         if (data.sender_uid != auth.currentUser.uid) {
+          document.getElementById(data.sound_effect).src = "sources/images/squeezing"+data.sound_effect+".png";
           //play sound
           getAudioFileFromGCS(data.sound_effect).then(url => {
             stream(url);
+            document.getElementById(data.sound_effect).src = "sources/images/"+data.sound_effect+".png";
           })
         }
       }

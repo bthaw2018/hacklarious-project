@@ -2,10 +2,11 @@
     width: 400px;
     padding: 20px;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    max-height: 90vh;
+    bottom: 0;
+    right: -10px;
+    max-height: 95vh;
     overflow: scroll;
+    overflow-x: hidden;
 }
 .message {
     font-size: .75em;
