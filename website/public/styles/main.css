@@ -4,3 +4,10 @@
 .custom_button_group {
     margin-left: 10px;
 }
+.cool-3d-button {
+    box-shadow: 0 9px #999;
+}
+.cool-3d-button:active, .cool-3d-button:disabled {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
