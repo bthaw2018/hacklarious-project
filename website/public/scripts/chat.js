@@ -154,12 +154,13 @@ function createRandomFonts(parent, string) {
         // newEl.classList.add(randomFontClass());
         // newEl.classList.add(randomColorClass());
         newEl.style.color = randomColorClass();
-        newEl.style['font-family'] = randomFontClass();
+
 
         // emojis dont work right without this
         // console.log(char)
         if (char.match('^[A-Za-z0-9_.]+$')) {
             newEl.style['font-size'] = randomSizeClass();
+            newEl.style['font-family'] = randomFontClass();
         }
 
         //     console.log('true')
