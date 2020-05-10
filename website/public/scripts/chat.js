@@ -51,6 +51,7 @@ query.onSnapshot(snapshot => {
 
             if (seconds < 5) {
                 randomMeme();
+                randomPokemon();
             }
 
         }
